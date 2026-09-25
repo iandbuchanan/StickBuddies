@@ -43,6 +43,48 @@ Stick figures that live on your Windows desktop, inspired by Alan Becker's *Anim
 
 Pick them up with the mouse, gently. If you fling them, they learn not to trust you.
 
+## The brain view (Ctrl+Alt+B)
+
+Press **Ctrl+Alt+B** to open a panel in the top-left corner showing what each buddy is thinking and what it has learned so far. Press it again to hide the panel. Each buddy gets a block like this:
+
+```
+Red  ·  playing tag
+decisions: 754  ·  still guessing 6%  ·  last reward +1.36
+jumps landed 24/44  ·  loves: epic battle music  ·  hates: schoolwork
+```
+
+| What you see | What it means |
+|---|---|
+| **playing tag** (after the name) | What the buddy is doing right now |
+| **decisions** | How many choices its decision-making neural network has learned from. Higher means more experience. |
+| **still guessing %** | How often it tries something at random instead of doing what it has learned works. A brand-new buddy guesses 100% of the time; this drops a little after every decision, down to 5%. |
+| **last reward** | How much better (+) or worse (−) its last choice made it feel. This is the number the network learns from. |
+| **jumps landed** | Score for its separate jumping neural network: successful landings out of attempts |
+| **loves / hates** | Its strongest opinions so far, about apps, websites, music or its own activities |
+
+The full list of opinions is saved in `what they like.txt` in the app folder.
+
+## How they learn
+
+Nothing here is scripted with fixed answers. Each buddy learns from its own experience, with small neural networks written from scratch in `nn.js`.
+
+**1. Needs.** Every buddy has four needs that change over time: **energy**, **fun**, **social** and **curiosity**. Exploring uses energy, being alone makes them lonely, and new things make them curious. Personality changes how much each need matters: Red lives for action, Blue is calm, Yellow is curious.
+
+**2. Choosing what to do (Q-learning).** When a buddy finishes something, its decision network looks at its needs and surroundings as numbers: how tired it is, whether a teammate is nearby, whether a video is playing, whether you're doing schoolwork, and so on. The network predicts how good each possible activity would be and picks one: explore, rest, play tag, spar, high five, code, watch, and more. At first it mostly guesses (the *still guessing %*).
+
+**3. The reward.** When the activity ends, the buddy checks whether it feels better. Fixing a big need gives a big reward. For example, resting when exhausted feels great, and resting when already rested does nothing. Being flung by the mouse or failing at something gives a negative reward. The network adjusts its predictions a little after every decision (backpropagation with the Adam optimizer), so good choices become more likely. Expect them to get noticeably smarter over roughly the first 15–30 minutes of running.
+
+**4. Learning to jump.** A second neural network learns how hard to jump and when to double-jump to land on top of a window. Early on they miss a lot. As they practice, their predictions improve. Once one has at least 8 jumps of experience and predicts it has less than a 15% chance of making a jump, it asks a teammate for a boost instead.
+
+**5. Other things they learn**
+
+- **Trust in you.** Setting them down gently raises their trust in your mouse; flinging them lowers it. Teammates who see it happen are affected too. A buddy with low trust keeps its distance from your cursor.
+- **Opinions.** What they think of an app, website or song starts from their personality, and then shifts with how they actually feel while it's on screen. An opinion forms after watching or using something for a little while. Opinions about their own activities come from the rewards those activities gave them, after at least 3 tries.
+- **Coding.** They write programs by snapping code blocks together and running them with Node. Every crash makes them more careful: their chance of making a beginner mistake drops each time. Blocks that led to good programs get used more, and a program is only saved if it's better than their previous best.
+- **Dancing.** Each buddy makes up its own dance routines from the move library, tries small changes, and keeps a change only if it suits its style better. They sometimes remix a teammate's routine.
+
+**6. Memory.** Everything they learn is saved to `memory.json` every 10 seconds and when you stop the app, and loaded again the next time they start. Each time they start, their decision network goes back to guessing at least 25% of the time for a while, then settles down again as it makes new decisions. To start completely over as beginners, close StickBuddies and delete `memory.json`.
+
 ## Privacy
 
 Everything stays on your computer. Nothing is sent over the internet.
