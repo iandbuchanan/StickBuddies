@@ -1,0 +1,21 @@
+# Dependencies (reinstalled by npm install)
+node_modules/
+
+# Personal data the app creates while running
+memory.json
+memory.json.tmp
+what they like.txt
+debug.log
+stop.request
+their code/
+
+# Music (usually copyrighted); keep only the instructions file
+music/*
+!music/PUT YOUR MUSIC HERE.txt
+
+# OS / editor clutter
+desktop.ini
+Thumbs.db
+.DS_Store
+.claude/
+*.zip

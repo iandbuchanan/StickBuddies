@@ -1,0 +1,33 @@
+STICKBUDDIES
+============
+
+Alan Becker style stick figures (TSC, Red, Green, Blue, Yellow) that live on your desktop.
+They have their own homemade AI brain (a neural network written in JavaScript, no internet needed).
+They explore, stand on your windows, play tag, watch your videos and games with you, dance to music,
+and even write their own code. They start as beginners and learn by themselves.
+
+WHAT YOU NEED
+  - A Windows 10 or 11 computer
+  - Node.js (free) - get the "LTS" version from https://nodejs.org
+  - About 300 MB of free space and an internet connection for the first setup
+
+HOW TO SET IT UP (only once)
+  1. Unzip this folder somewhere (for example your Desktop).
+  2. Install Node.js if you don't have it.
+  3. Double-click  "SETUP (run this first).bat"  and wait until it says "All set!"
+
+HOW TO USE IT
+  - Start:  double-click "Start StickBuddies.bat"
+  - Stop:   double-click "Stop StickBuddies.bat"  (or press Ctrl+Alt+Q)
+  - Ctrl+Alt+B  = see their brains (what they're thinking and learning)
+  - Ctrl+Alt+H  = hide / show them
+  - Ctrl+Alt+M  = music on / off
+  - Pick them up with your mouse (be gentle - if you fling them, they stop trusting you!)
+  - Put your own music files in the "music" folder and they'll dance to it.
+  - "Run Their Code.bat" runs the programs they write.
+
+GOOD TO KNOW
+  - They only LOOK at where your windows are and LISTEN to your computer's sound (to hear music).
+    Nothing is recorded or sent anywhere.
+  - They remember what they learn in memory.json. Delete it to make them beginners again.
+  - The first time, Windows might ask "Do you want to allow this?" - that's normal, click Allow.

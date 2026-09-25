@@ -1,0 +1,12 @@
+{
+  "name": "stickbuddies",
+  "version": "3.0.0",
+  "description": "Alan Becker style stick figures living on your desktop, with a homemade JavaScript brain.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^44.4.5"
+  }
+}

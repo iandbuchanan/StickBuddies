@@ -1,0 +1,5 @@
+Put your own music files in this folder (.mp3, .ogg, .wav or .m4a).
+Example: your Tears of the Kingdom soundtrack songs.
+
+They play on shuffle while the buddies hang out, and the buddies might start dancing.
+Ctrl+Alt+M turns the music on or off.
