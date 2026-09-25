@@ -1,4 +1,5 @@
-# StickBuddies created by my 9 year old son with Claude Code and his very creative imagination.
+# StickBuddies
+## Created by my 9 year old son with Claude Code and his very creative imagination.
 
 Stick figures that live on your Windows desktop, inspired by Alan Becker's *Animation vs. Animator* and *Animation vs. Minecraft*. TSC, Red, Green, Blue and Yellow walk around your screen, stand on top of your open windows, and run on a homemade AI: small neural networks written from scratch in plain JavaScript. There's no API key and no internet connection. They start out as beginners and learn by themselves.
 
